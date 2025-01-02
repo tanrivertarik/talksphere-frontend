@@ -1,22 +1,5 @@
 # TalkSphere
 
-TalkSphere is a modern web-based communication platform built with React, TypeScript, and Vite.
-
-## 🚀 Features
-
-- Real-time messaging
-- Modern and responsive UI
-- TypeScript support
-- Built with React and Vite
-- Customizable chatbot integration
-
-## 🛠️ Technologies
-
-- React 18
-- TypeScript
-- Vite
-- ESLint for code quality
-
 ## 🏁 Getting Started
 
 ### Prerequisites
