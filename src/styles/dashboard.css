@@ -1,0 +1,61 @@
+@layer components {
+  .dashboard-layout {
+    @apply flex min-h-screen bg-gray-50;
+  }
+
+  .dashboard-nav {
+    @apply w-64 flex flex-col fixed h-screen border-r bg-white shadow-lg z-10;
+  }
+
+  .dashboard-content {
+    @apply flex-1 pl-64;
+  }
+
+  .nav-menu {
+    @apply flex-1 overflow-y-auto;
+  }
+
+  .nav-item {
+    @apply mb-2 last:mb-0 w-full flex items-center space-x-2 p-3 rounded-lg transition-colors;
+  }
+
+  .nav-item.active {
+    @apply bg-primary text-white;
+  }
+
+  .nav-item:not(.active) {
+    @apply text-gray-600 hover:bg-gray-100;
+  }
+
+  .dashboard-header {
+    @apply p-8 bg-white border-b;
+  }
+
+  .dashboard-card {
+    @apply bg-white p-6 rounded-lg shadow-sm h-full;
+  }
+
+  .quick-stats {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mt-6;
+  }
+
+  .dashboard-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 p-8;
+  }
+
+  .card-header {
+    @apply flex justify-between items-center mb-4;
+  }
+
+  .view-all {
+    @apply text-sm text-primary hover:text-primary-dark;
+  }
+
+  .workflow-actions {
+    @apply mt-4 space-y-2;
+  }
+
+  .action-btn {
+    @apply w-full py-2 px-4 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors;
+  }
+}
