@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 const teamMembers = [
     {
         name: 'Ahmet Tarik TANRIVER',
-        role: 'CEO & Co-founder',
-        description: 'Leading our vision in AI-powered business communication',
+        role: 'CEO & Kurucu Ortak',
+        description: 'Yapay zeka destekli iş iletişiminde vizyonumuzu yönlendiriyor',
         image: '/assets/team/ceo.jpg',
         social: {
             linkedin: '#',
@@ -13,8 +13,8 @@ const teamMembers = [
     },
     {
         name: 'Selim YUREKLI',
-        role: 'CTO & Co-founder',
-        description: 'Architecting our AI and technology infrastructure',
+        role: 'CTO & Kurucu Ortak',
+        description: 'Yapay zeka ve teknoloji altyapımızı tasarlıyor',
         image: '/assets/team/cto.jpg',
         social: {
             linkedin: '#',
@@ -23,8 +23,8 @@ const teamMembers = [
     },
     {
         name: 'Berk ATCEKEN',
-        role: 'CPO & Co-founder',
-        description: 'Shaping our product strategy and user experience',
+        role: 'CPO & Kurucu Ortak',
+        description: 'Ürün stratejimizi ve kullanıcı deneyimimizi şekillendiriyor',
         image: '/assets/team/cpo.jpg',
         social: {
             linkedin: '#',
@@ -43,16 +43,16 @@ const About = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            About TalkSphere
+            TalkSphere Hakkında
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're revolutionizing business communication through AI-powered solutions, 
-            making customer interactions more efficient and effective through our modern SaaS platform.
+            Yapay zeka destekli çözümlerle iş iletişimini devrim niteliğinde değiştiriyoruz, 
+            modern SaaS platformumuz aracılığıyla müşteri etkileşimlerini daha verimli ve etkili hale getiriyoruz.
           </p>
         </motion.div>
 
         <div className="mt-20">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Leadership Team</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Liderlik Ekibimiz</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <motion.div

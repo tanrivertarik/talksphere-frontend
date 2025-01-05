@@ -6,31 +6,12 @@ import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import { Suspense, lazy } from 'react';
-import Login from './pages/Login';
-import { useAuth } from './hooks/useAuth';
 import Loading from './components/common/Loading';
-import DashboardLayout from './layouts/DashboardLayout';
-
-// Korumalı rota bileşeni
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { isAuthenticated } = useAuth();
-  
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
-  
-  return <>{children}</>;
-};
+import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
 
 // Lazy loaded components
-const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'));
-const Conversations = lazy(() => import('./pages/dashboard/Conversations'));
-const Analytics = lazy(() => import('./pages/dashboard/Analytics'));
-const AIWorkflow = lazy(() => import('./pages/dashboard/AIWorkflow'));
-const Team = lazy(() => import('./pages/dashboard/Team'));
-const Settings = lazy(() => import('./pages/dashboard/Settings'));
 const Solutions = lazy(() => import('./pages/Solutions'));
-const Pricing = lazy(() => import('./pages/Pricing'));
 
 function App() {
   return (
@@ -47,50 +28,8 @@ function App() {
                   <Header /><Solutions /><Footer />
                 </Suspense>
               } />
-              <Route path="/pricing" element={
-                <Suspense fallback={<Loading />}>
-                  <Header /><Pricing /><Footer />
-                </Suspense>
-              } />
-              <Route path="/login" element={<Login />} />
-
-              {/* Protected dashboard routes */}
-              <Route path="/dashboard/*" element={
-                <ProtectedRoute>
-                  <DashboardLayout />
-                </ProtectedRoute>
-              }>
-                <Route index element={
-                  <Suspense fallback={<Loading />}>
-                    <Dashboard />
-                  </Suspense>
-                } />
-                <Route path="conversations" element={
-                  <Suspense fallback={<Loading />}>
-                    <Conversations />
-                  </Suspense>
-                } />
-                <Route path="analytics" element={
-                  <Suspense fallback={<Loading />}>
-                    <Analytics />
-                  </Suspense>
-                } />
-                <Route path="ai-workflow" element={
-                  <Suspense fallback={<Loading />}>
-                    <AIWorkflow />
-                  </Suspense>
-                } />
-                <Route path="team" element={
-                  <Suspense fallback={<Loading />}>
-                    <Team />
-                  </Suspense>
-                } />
-                <Route path="settings" element={
-                  <Suspense fallback={<Loading />}>
-                    <Settings />
-                  </Suspense>
-                } />
-              </Route>
+              <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
+              <Route path="/privacy" element={<><Header /><Privacy /><Footer /></>} />
 
               {/* 404 sayfası */}
               <Route path="*" element={<Navigate to="/" replace />} />

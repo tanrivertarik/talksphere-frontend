@@ -1,9 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
 
 const Navigation = () => {
   const location = useLocation();
-  const { isAuthenticated } = useAuth();
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -17,7 +15,7 @@ const Navigation = () => {
           isActive('/#features') ? 'text-primary' : ''
         }`}
       >
-        Features
+        Özellikler
       </Link>
       <Link
         to="/solutions"
@@ -25,15 +23,7 @@ const Navigation = () => {
           isActive('/solutions') ? 'text-primary' : ''
         }`}
       >
-        Solutions
-      </Link>
-      <Link
-        to="/pricing"
-        className={`text-gray-600 hover:text-primary ${
-          isActive('/pricing') ? 'text-primary' : ''
-        }`}
-      >
-        Pricing
+        Çözümler
       </Link>
       <Link
         to="/about"
@@ -41,31 +31,8 @@ const Navigation = () => {
           isActive('/about') ? 'text-primary' : ''
         }`}
       >
-        About
+        Hakkımızda
       </Link>
-      {!isAuthenticated ? (
-        <>
-          <Link
-            to="/login"
-            className="text-primary font-medium hover:text-primary-dark"
-          >
-            Login
-          </Link>
-          <Link
-            to="/signup"
-            className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark"
-          >
-            Start Free Trial
-          </Link>
-        </>
-      ) : (
-        <Link
-          to="/dashboard"
-          className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark"
-        >
-          Dashboard
-        </Link>
-      )}
     </nav>
   );
 };

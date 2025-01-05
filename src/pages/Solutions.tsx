@@ -5,47 +5,47 @@ import Card from '../components/common/Card';
 
 const solutionsList = [
   {
-    title: 'AI-Powered Communication',
-    description: 'Enhance your customer interactions with advanced artificial intelligence and natural language processing.',
-    icon: <FontAwesomeIcon icon={faRobot} className="text-primary text-2xl" />,
-    features: [
-      'Smart conversation routing',
-      'Natural language understanding',
-      'Automated responses',
-      'Context-aware interactions'
-    ]
-  },
-  {
-    title: 'Customer Experience Analytics',
-    description: 'Gain deep insights into customer interactions and optimize communication strategies.',
-    icon: <FontAwesomeIcon icon={faChartBar} className="text-primary text-2xl" />,
-    features: [
-      'Conversation analytics',
-      'Customer sentiment analysis',
-      'Performance metrics',
-      'Behavioral insights'
-    ]
-  },
-  {
-    title: 'Business Integration',
-    description: 'Seamlessly integrate AI-powered communication into your existing business workflow.',
+    title: 'Sektörel Çözümler',
+    description: 'Her sektöre özel yapay zeka destekli çözümlerle iş süreçlerinizi optimize edin.',
     icon: <FontAwesomeIcon icon={faBuilding} className="text-primary text-2xl" />,
     features: [
-      'CRM integration',
-      'API connectivity',
-      'Custom workflows',
-      'Multi-platform support'
+      'Sağlık: Hasta etkileşimleri ve teşhis desteği',
+      'Eğitim: Kişiselleştirilmiş öğretim sistemleri',
+      'E-ticaret: Ürün önerileri ve müşteri desteği',
+      'Hukuk: Sözleşme analizi ve dava desteği'
     ]
   },
   {
-    title: 'Enterprise Security',
-    description: 'Ensure secure and compliant communication with enterprise-grade protection.',
+    title: 'Yapay Zeka Modelleri',
+    description: 'En gelişmiş yapay zeka modellerini tek platformda birleştiren güçlü altyapı.',
+    icon: <FontAwesomeIcon icon={faRobot} className="text-primary text-2xl" />,
+    features: [
+      'GPT Modelleri ile gelişmiş dil işleme',
+      'Google Gemini Pro entegrasyonu',
+      'Azure & Anthropic desteği',
+      'Açık kaynak model esnekliği'
+    ]
+  },
+  {
+    title: 'Veri Yönetimi ve Güvenlik',
+    description: 'KVKK uyumlu, uçtan uca şifreli ve güvenli veri yönetim sistemi.',
     icon: <FontAwesomeIcon icon={faShieldAlt} className="text-primary text-2xl" />,
     features: [
-      'End-to-end encryption',
-      'Data privacy controls',
-      'Compliance management',
-      'Access control'
+      'Uçtan uca veri şifreleme',
+      'KVKK uyumlu sistemler',
+      'Yüksek hızlı vektör veritabanları',
+      'Güvenli veri erişim kontrolü'
+    ]
+  },
+  {
+    title: 'İş Verimliliği ve Analitik',
+    description: 'Gerçek zamanlı analitik ve optimizasyon araçlarıyla iş süreçlerinizi geliştirin.',
+    icon: <FontAwesomeIcon icon={faChartBar} className="text-primary text-2xl" />,
+    features: [
+      'Maliyet tasarrufu optimizasyonları',
+      'Gerçek zamanlı performans takibi',
+      'Müşteri davranış analitiği',
+      'Otomatik raporlama sistemleri'
     ]
   }
 ];
@@ -60,11 +60,11 @@ const Solutions = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Comprehensive AI Solutions for Modern Business Communication
+            Modern İş İletişimi için Kapsamlı Yapay Zeka Çözümleri
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover how TalkSphere's AI-powered platform can transform your customer communication 
-            and deliver more efficient, effective interactions.
+            TalkSphere'in yapay zeka destekli platformunun müşteri iletişiminizi nasıl dönüştürebileceğini 
+            ve daha verimli, etkili etkileşimler sağlayabileceğini keşfedin.
           </p>
         </motion.div>
 
