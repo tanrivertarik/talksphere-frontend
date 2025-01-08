@@ -9,6 +9,9 @@ export default {
           dark: "#1d4ed8",
         },
       },
+      fontFamily: {
+        neue: ["NeueMachina", "sans-serif"],
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

@@ -24,14 +24,20 @@ const ContactForm = () => {
     setStatus('loading');
     
     try {
-      // API endpoint'e form verilerini gönder
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+      // Email içeriğini oluştur
+      const subject = encodeURIComponent(`TalkSphere İletişim: ${formData.subject}`);
+      const body = encodeURIComponent(`
+İsim: ${formData.name}
+Email: ${formData.email}
+Firma: ${formData.company}
+Konu: ${formData.subject}
 
-      if (!response.ok) throw new Error('Gönderim başarısız');
+Mesaj:
+${formData.message}
+      `);
+
+      // mailto linkini aç
+      window.location.href = `mailto:info@talksphere.com?subject=${subject}&body=${body}`;
       
       setStatus('success');
       setFormData({ name: '', email: '', company: '', subject: '', message: '' });
