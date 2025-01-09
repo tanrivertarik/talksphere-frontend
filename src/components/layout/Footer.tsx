@@ -130,7 +130,7 @@ const Footer = () => {
               © {currentYear} TalkSphere. Tüm hakları saklıdır.
             </p>
             <div className="flex items-center space-x-8">
-              {['Gizlilik', 'Koşullar', 'Çerezler'].map((item, index) => (
+              {['Gizlilik', 'Koşullar', 'Çerezler'].map((item) => (
                 <Link
                   key={item}
                   to={`/${item.toLowerCase()}`}
