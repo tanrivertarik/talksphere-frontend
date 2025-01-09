@@ -2,6 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Typography Scale */
+@layer base {
+  h1 {
+    @apply font-inter text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900;
+  }
+
+  h2 {
+    @apply font-inter text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight text-primary;
+  }
+
+  h3 {
+    @apply font-inter text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug text-gray-800;
+  }
+
+  h4 {
+    @apply font-inter text-xl md:text-2xl font-medium leading-snug text-primary-dark;
+  }
+
+  p {
+    @apply font-inter text-base md:text-lg leading-relaxed text-gray-700;
+  }
+
+  /* Text emphasis classes */
+  .text-emphasis {
+    @apply font-semibold text-primary;
+  }
+
+  .text-highlight {
+    @apply bg-primary/10 text-primary px-1 rounded;
+  }
+
+  .text-caption {
+    @apply text-sm text-gray-600 font-medium;
+  }
+
+  .text-subtle {
+    @apply text-gray-500;
+  }
+
+  .text-small {
+    @apply font-inter text-sm leading-normal text-gray-600;
+  }
+
+  .text-xs {
+    @apply font-inter text-xs leading-normal text-gray-500;
+  }
+}
+
 body {
   @apply bg-gray-100 text-gray-900;
 }

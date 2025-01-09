@@ -5,12 +5,24 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#2563eb",
-          dark: "#1d4ed8",
+          DEFAULT: "#2E7D32",
+          alt: "#1B5E20",
+        },
+        accent: {
+          DEFAULT: "#A67F52",
+          light: "#D2B48C",
+        },
+        background: {
+          light: "#FAFAFA",
+          alt: "#F8F8F8",
+        },
+        text: {
+          DEFAULT: "#4A3F35",
+          alt: "#333333",
         },
       },
       fontFamily: {
-        neue: ["NeueMachina", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },

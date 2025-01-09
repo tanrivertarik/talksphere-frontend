@@ -5,7 +5,7 @@ const teamMembers = [
         name: 'Ahmet Tarik TANRIVER',
         role: 'CEO & Kurucu Ortak',
         description: 'Yapay zeka destekli iş iletişiminde vizyonumuzu yönlendiriyor',
-        image: '/assets/team/ceo.jpg',
+        image: '/assets/team/ceo.png',
         social: {
             linkedin: '#',
             github: '#'

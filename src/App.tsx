@@ -9,6 +9,7 @@ import { Suspense, lazy } from 'react';
 import Loading from './components/common/Loading';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
+import HowItWorks from './pages/HowItWorks';
 
 // Lazy loaded components
 const Solutions = lazy(() => import('./pages/Solutions'));
@@ -30,6 +31,7 @@ function App() {
               } />
               <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
               <Route path="/privacy" element={<><Header /><Privacy /><Footer /></>} />
+              <Route path="/how-it-works" element={<><Header /><HowItWorks /><Footer /></>} />
 
               {/* 404 sayfası */}
               <Route path="*" element={<Navigate to="/" replace />} />
