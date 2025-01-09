@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';
