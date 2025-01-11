@@ -2,28 +2,18 @@ import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Button from '../components/common/Button';
 import { Link } from 'react-router-dom';
-
-interface VideoChapter {
-  time: string;
-  seconds: number;
-  title: string;
-}
-
-const chapters: VideoChapter[] = [
-  { time: "0:00", seconds: 0, title: "Giriş" },
-  { time: "0:12", seconds: 12, title: "Yapay Zeka Destekli Çözüm" },
-  { time: "0:17", seconds: 17, title: "Neden TalkSphere?" },
-  { time: "0:27", seconds: 27, title: "Çoklu Yapay Zeka Seçenekleri" },
-  { time: "0:32", seconds: 32, title: "Dökümanlardan Otomatik Öğrenme" },
-  { time: "0:41", seconds: 41, title: "Fiyatlandırma" },
-  { time: "0:51", seconds: 51, title: "Sürekli Geliştirme" },
-  { time: "0:59", seconds: 59, title: "Örnek" },
-  { time: "1:05", seconds: 65, title: "Çıkış" }
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 const HowItWorks = () => {
   const [activeChapter, setActiveChapter] = useState(0);
   const videoRef = useRef<HTMLIFrameElement>(null);
+  const { t } = useTranslation();
+
+  const chapters = t('how_it_works.chapters', { returnObjects: true }) as Array<{
+    time: string;
+    seconds: number;
+    title: string;
+  }>;
 
   const handleChapterClick = (seconds: number, index: number) => {
     setActiveChapter(index);
@@ -49,8 +39,8 @@ const HowItWorks = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          TalkSphere<br />
-          <span className="text-[#058C42]">Müşteri Hizmetlerinin Geleceği</span>
+          {t('how_it_works.title') as string}<br />
+          <span className="text-[#058C42]">{t('how_it_works.subtitle') as string}</span>
         </motion.h1>
         <motion.div 
           className="inline-block bg-[#058C42]/10 rounded-full px-4 py-2 text-[#058C42] border border-[#058C42]/20"
@@ -60,7 +50,7 @@ const HowItWorks = () => {
         >
           <span className="flex items-center gap-2">
             <span className="w-2 h-2 bg-[#058C42] rounded-full animate-pulse"></span>
-            Demo
+            {t('how_it_works.demo_label')}
           </span>
         </motion.div>
       </div>
@@ -75,7 +65,9 @@ const HowItWorks = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
           >
-            <h3 className="text-[#058C42] text-sm font-medium mb-4 uppercase tracking-wider">Video Bölümleri</h3>
+            <h3 className="text-[#058C42] text-sm font-medium mb-4 uppercase tracking-wider">
+              {t('how_it_works.chapters_title')}
+            </h3>
             <div className="space-y-2">
               {chapters.map((chapter, index) => (
                 <div 
@@ -101,7 +93,7 @@ const HowItWorks = () => {
             <div className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-sm border border-[#A8D5A2]">
               <iframe
                 ref={videoRef}
-                src="https://www.youtube.com/embed/cr1NvR7LcIk?enablejsapi=1"
+                src={t('how_it_works.video_url')}
                 title="TalkSphere Nasıl Çalışır?"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -112,23 +104,23 @@ const HowItWorks = () => {
             {/* Call to Action */}
             <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-[#A8D5A2] hover:border-[#058C42] transition-colors shadow-lg">
-                <h3 className="text-[#2F2F2F] font-semibold mb-2">Satış ekibiyle görüşün</h3>
-                <p className="text-[#2F2F2F]/70 text-sm mb-4">Sektörünüze özel kullanım senaryolarını keşfedin.</p>
-                <Link to="/contact" state={{ message: "Satış ekibiyle görüşmek istiyorum" }}>
+                <h3 className="text-[#2F2F2F] font-semibold mb-2">{t('how_it_works.cta.sales.title')}</h3>
+                <p className="text-[#2F2F2F]/70 text-sm mb-4">{t('how_it_works.cta.sales.description')}</p>
+                <Link to="/contact" state={{ message: t('how_it_works.cta.sales.message') }}>
                   <Button variant="primary" className="w-full bg-[#058C42] hover:bg-[#058C42]/90 text-white transition-all duration-300">
-                    İletişime geçin
+                    {t('how_it_works.cta.sales.button')}
                   </Button>
                 </Link>
               </div>
               <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-[#A8D5A2] hover:border-[#058C42] transition-colors shadow-lg">
-                <h3 className="text-[#2F2F2F] font-semibold mb-2">Ücretsiz deneyin</h3>
-                <p className="text-[#2F2F2F]/70 text-sm mb-4">14 günlük deneme sürümünü başlatın, kredi kartı gerekmez.</p>
-                <Link to="/contact" state={{ message: "Demo talebi" }}>
+                <h3 className="text-[#2F2F2F] font-semibold mb-2">{t('how_it_works.cta.trial.title')}</h3>
+                <p className="text-[#2F2F2F]/70 text-sm mb-4">{t('how_it_works.cta.trial.description')}</p>
+                <Link to="/contact" state={{ message: t('how_it_works.cta.trial.message') }}>
                   <Button 
                     variant="outline" 
                     className="w-full bg-white hover:bg-[#1c703d] border-2 border-[#058C42] text-[#058C42] font-medium transition-all duration-300 py-3 px-6 rounded-lg"
                   >
-                    Demo talep edin
+                    {t('how_it_works.cta.trial.button')}
                   </Button>
                 </Link>
               </div>

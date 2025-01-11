@@ -3,7 +3,7 @@ import Card from '../components/common/Card';
 import { useTranslation } from '../hooks/useTranslation';
 import { Link } from 'react-router-dom';
 
-const Privacy = () => {
+const Cookies = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,15 +15,15 @@ const Privacy = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            {t('privacy.title')}
+            {t('cookies.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {t('privacy.subtitle')}
+            {t('cookies.subtitle')}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {(t('privacy.sections', { returnObjects: true }) as Array<{
+          {(t('cookies.sections', { returnObjects: true }) as Array<{
             title: string;
             content: string;
           }>).map((section, index) => (
@@ -49,11 +49,11 @@ const Privacy = () => {
           className="mt-12 text-center"
         >
           <p className="mt-4 text-gray-600">
-            {t('privacy.footer.contact_text')}{' '}
+            {t('cookies.footer.contact_text')}{' '}
             <Link to="/contact" className="text-primary hover:underline">
-              {t('privacy.footer.contact_link')}
+              {t('cookies.footer.contact_link')}
             </Link>
-            {' '}{t('privacy.footer.contact_suffix')}
+            {' '}{t('cookies.footer.contact_suffix')}
           </p>
         </motion.div>
       </div>
@@ -61,4 +61,4 @@ const Privacy = () => {
   );
 };
 
-export default Privacy; 
+export default Cookies; 
