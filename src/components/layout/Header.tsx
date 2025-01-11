@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import LanguageSelector from '../common/LanguageSelector';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToFeatures = (e: React.MouseEvent) => {
@@ -39,7 +42,7 @@ const Header = () => {
                 onClick={scrollToFeatures}
                 className="text-gray-800 font-bold px-3 py-1 rounded-md transition-all duration-200 hover:bg-gray-100 cursor-pointer"
               >
-                Özellikler
+                {t('nav.features')}
               </a>
             </div>
           </div>
@@ -47,22 +50,20 @@ const Header = () => {
           {/* Middle transparent section */}
           <div className="flex-1 bg-transparent"></div>
 
-          {/* Solutions and About section */}
-          <div className="bg-white rounded-lg shadow-md px-8 py-2 w-[420px]">
-            <div className="flex items-center justify-between">
-              <Link to="/solutions" className="text-gray-800 font-bold px-3 py-1 rounded-md transition-all duration-200 hover:bg-gray-200">
-                Çözümler
-              </Link>
-              <Link to="/about" className="text-gray-800 font-bold px-3 py-1 rounded-md transition-all duration-200 hover:bg-gray-200">
-                Hakkımızda
-              </Link>
-              <Link 
-                to="/contact" 
-                state={{ message: "Şirketinize özel fiyatlandırma için bize ulaşın." }}
-                className="text-gray-800 font-bold px-3 py-1 rounded-md transition-all duration-200 hover:bg-gray-200"
-              >
-                Fiyatlandırma
-              </Link>
+          {/* Solutions, How it works, Pricing section */}
+          <div className="bg-white rounded-lg shadow-md px-6 py-2 flex items-center justify-between">
+            <Link to="/solutions" className="text-gray-800 font-bold px-3 py-1 rounded-md transition-all duration-200 hover:bg-gray-200">
+              {t('nav.solutions')}
+            </Link>
+            <Link 
+              to="/contact" 
+              state={{ message: t('nav.pricing_message') }}
+              className="text-gray-800 font-bold px-3 py-1 rounded-md transition-all duration-200 hover:bg-gray-200"
+            >
+              {t('nav.pricing')}
+            </Link>
+            <div className="ml-0 border-l pl-4 border-gray-200">
+              <LanguageSelector />
             </div>
           </div>
 
@@ -83,14 +84,17 @@ const Header = () => {
             </span>
           </Link>
 
-          <button 
-            className="text-gray-800 p-2 rounded-md hover:bg-gray-100"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-4">
+            <LanguageSelector />
+            <button 
+              className="text-gray-800 p-2 rounded-md hover:bg-gray-100"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -105,29 +109,29 @@ const Header = () => {
                 }}
                 className="block px-3 py-2 text-gray-800 rounded-md transition-all duration-200 hover:bg-gray-100 cursor-pointer"
               >
-                Özellikler
+                {t('nav.features')}
               </a>
               <Link 
                 to="/solutions" 
                 className="block px-3 py-2 text-gray-800 rounded-md transition-all duration-200 hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Çözümler
+                {t('nav.solutions')}
               </Link>
               <Link 
                 to="/about" 
                 className="block px-3 py-2 text-gray-800 rounded-md transition-all duration-200 hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Hakkımızda
+                {t('nav.about')}
               </Link>
               <Link 
                 to="/contact" 
-                state={{ message: "Şirketinize özel fiyatlandırma için bize ulaşın." }}
+                state={{ message: t('nav.pricing_message') }}
                 className="block px-3 py-2 text-gray-800 rounded-md transition-all duration-200 hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Fiyatlandırma
+                {t('nav.pricing')}
               </Link>
             </div>
           </div>

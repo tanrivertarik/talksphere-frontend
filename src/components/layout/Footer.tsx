@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from '../../hooks/useTranslation';
 
 interface FooterLink {
   name: string;
@@ -7,6 +8,7 @@ interface FooterLink {
   state?: {
     message: string;
   };
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 interface FooterSection {
@@ -14,40 +16,79 @@ interface FooterSection {
   links: FooterLink[];
 }
 
-const footerLinks: Record<string, FooterSection> = {
-  product: {
-    title: 'Ürün',
-    links: [
-      { name: 'Özellikler', href: '/features' },
-      { name: 'Fiyatlandırma', href: '/contact', state: { message: "Şirketinize özel fiyatlandırma için bize ulaşın." } },
-    ],
-  },
-  company: {
-    title: 'Şirket',
-    links: [
-      { name: 'Hakkımızda', href: '/about' },
-      { name: 'İletişim', href: '/contact' },
-    ],
-  },
-  legal: {
-    title: 'Yasal',
-    links: [
-      { name: 'Gizlilik Politikası', href: '/privacy' },
-      { name: 'Kullanım Koşulları', href: '/terms' },
-      { name: 'KVKK', href: '/kvkk' },
-    ],
-  },
-  social: {
-    title: 'Sosyal Medya',
-    links: [
-      { name: 'Twitter', href: 'https://twitter.com/talksphere' },
-      { name: 'LinkedIn', href: 'https://linkedin.com/company/talksphere' },
-    ],
-  },
-};
-
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
+
+  const scrollToFeatures = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const footerLinks: Record<string, FooterSection> = {
+    product: {
+      title: t('footer.product'),
+      links: [
+        { 
+          name: t('footer.links.product.features'), 
+          href: '/#features',
+          onClick: scrollToFeatures
+        },
+        { 
+          name: t('footer.links.product.pricing'), 
+          href: '/contact', 
+          state: { message: t('footer.links.product.pricing_message') } 
+        },
+      ],
+    },
+    company: {
+      title: t('footer.company'),
+      links: [
+        { 
+          name: t('footer.links.company.about'), 
+          href: '/about' 
+        },
+        { 
+          name: t('footer.links.company.contact'), 
+          href: '/contact' 
+        },
+      ],
+    },
+    legal: {
+      title: t('footer.legal'),
+      links: [
+        { 
+          name: t('footer.links.legal.privacy'), 
+          href: '/privacy' 
+        },
+        { 
+          name: t('footer.links.legal.kvkk'), 
+          href: '/kvkk' 
+        },
+      ],
+    },
+    social: {
+      title: t('footer.social'),
+      links: [
+        { 
+          name: t('footer.links.social.twitter'), 
+          href: 'https://x.com/' 
+        },
+        { 
+          name: t('footer.links.social.linkedin'), 
+          href: 'https://linkedin.com/' 
+        },
+      ],
+    },
+  };
+
+  const bottomLinks: FooterLink[] = [
+    { name: t('footer.links.bottom.privacy'), href: '/privacy' },
+    { name: t('footer.links.bottom.cookies'), href: '/cookies' }
+  ];
 
   return (
     <footer className="bg-background-alt border-t border-accent/10">
@@ -82,7 +123,7 @@ const Footer = () => {
             </span>
           </div>
           <p className="text-text-alt max-w-md text-lg leading-relaxed">
-            Yapay zeka destekli müşteri iletişim platformu ile işletmenizi geleceğe taşıyın.
+            {t('footer.description')}
           </p>
         </motion.div>
 
@@ -106,6 +147,7 @@ const Footer = () => {
                     <Link
                       to={link.href}
                       state={link.state}
+                      onClick={link.onClick}
                       className="text-text-alt hover:text-primary transition-all duration-300 group relative inline-block"
                     >
                       <span className="relative z-10">{link.name}</span>
@@ -127,16 +169,16 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             <p className="text-text-alt text-sm">
-              © {currentYear} TalkSphere. Tüm hakları saklıdır.
+              © {currentYear} TalkSphere. {t('footer.rights')}
             </p>
             <div className="flex items-center space-x-8">
-              {['Gizlilik', 'Koşullar', 'Çerezler'].map((item) => (
+              {bottomLinks.map((link) => (
                 <Link
-                  key={item}
-                  to={`/${item.toLowerCase()}`}
+                  key={link.name}
+                  to={link.href}
                   className="text-text-alt hover:text-primary text-sm transition-all duration-300 relative group"
                 >
-                  <span className="relative z-10">{item}</span>
+                  <span className="relative z-10">{link.name}</span>
                   <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary/20 group-hover:w-full transition-all duration-300" />
                 </Link>
               ))}

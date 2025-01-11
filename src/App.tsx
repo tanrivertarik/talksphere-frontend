@@ -13,6 +13,8 @@ import HowItWorks from './pages/HowItWorks';
 import NotFound from './components/common/NotFound';
 import ScrollToTop from './components/common/ScrollToTop';
 import KVKK from './pages/KVKK';
+import Cookies from './pages/Cookies';
+import { LanguageProvider } from './context/LanguageContext';
 
 // Lazy loaded components
 const Solutions = lazy(() => import('./pages/Solutions'));
@@ -21,28 +23,31 @@ function App() {
   return (
     <ErrorBoundary>
       <AuthProvider>
-        <Router>
-          <ScrollToTop />
-          <div className="flex flex-col min-h-screen">
-            <Routes>
-              {/* Public routes */}
-              <Route path="/" element={<><Header /><Home /><Footer /></>} />
-              <Route path="/about" element={<><Header /><About /><Footer /></>} />
-              <Route path="/solutions" element={
-                <Suspense fallback={<Loading />}>
-                  <Header /><Solutions /><Footer />
-                </Suspense>
-              } />
-              <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
-              <Route path="/privacy" element={<><Header /><Privacy /><Footer /></>} />
-              <Route path="/how-it-works" element={<><Header /><HowItWorks /><Footer /></>} />
-              <Route path="/kvkk" element={<><Header /><KVKK /><Footer /></>} />
+        <LanguageProvider>
+          <Router>
+            <ScrollToTop />
+            <div className="flex flex-col min-h-screen">
+              <Routes>
+                {/* Public routes */}
+                <Route path="/" element={<><Header /><Home /><Footer /></>} />
+                <Route path="/about" element={<><Header /><About /><Footer /></>} />
+                <Route path="/solutions" element={
+                  <Suspense fallback={<Loading />}>
+                    <Header /><Solutions /><Footer />
+                  </Suspense>
+                } />
+                <Route path="/contact" element={<><Header /><Contact /><Footer /></>} />
+                <Route path="/privacy" element={<><Header /><Privacy /><Footer /></>} />
+                <Route path="/how-it-works" element={<><Header /><HowItWorks /><Footer /></>} />
+                <Route path="/kvkk" element={<><Header /><KVKK /><Footer /></>} />
+                <Route path="/cookies" element={<><Header /><Cookies /><Footer /></>} />
 
-              {/* 404 sayfası */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </div>
-        </Router>
+                {/* 404 sayfası */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </div>
+          </Router>
+        </LanguageProvider>
       </AuthProvider>
     </ErrorBoundary>
   );

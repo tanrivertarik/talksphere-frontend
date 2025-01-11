@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import Button from '../common/Button';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="pt-60 pb-60 bg-cover bg-center relative min-h-[90vh] flex items-center overflow-hidden" 
       style={{ backgroundImage: "url('/assets/hero-bg.png')" }}>
@@ -23,10 +26,10 @@ const Hero = () => {
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight">
-            Yapay Zeka ile Müşteri İletişimini Baştan Yaratın
+              {t('home.title')}
             </h1>
             <p className="text-lg sm:text-xl text-stone-100 max-w-3xl mx-auto leading-relaxed">
-            TalkSphere, her etkileşimde verimliliği ve memnuniyeti en üst düzeye çıkaran modern bir SaaS çözümüdür. Yapay zeka destekli iletişimle müşterilerinize daima doğru ve hızlı cevabı sunun.
+              {t('home.description')}
             </p>
           </motion.div>
           
@@ -45,7 +48,7 @@ const Hero = () => {
                          transform transition-all duration-200 hover:scale-[1.02] shadow-lg
                          hover:shadow-primary/20"
               >
-                Nasıl Çalışır
+                {t('home.how_it_works')}
               </Button>
             </Link>
             <Link to="/contact" className="inline-block">
@@ -56,7 +59,7 @@ const Hero = () => {
                          backdrop-blur-sm hover:bg-white/20 font-semibold transform transition-all 
                          duration-200 hover:scale-[1.02] shadow-lg w-full sm:w-auto"
               >
-                Daha Fazla Bilgi
+                {t('home.learn_more')}
               </Button>
             </Link>
           </motion.div>
