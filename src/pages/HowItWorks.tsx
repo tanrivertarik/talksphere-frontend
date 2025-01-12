@@ -93,8 +93,8 @@ const HowItWorks = () => {
             <div className="aspect-video rounded-xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-sm border border-[#A8D5A2]">
               <iframe
                 ref={videoRef}
-                src={t('how_it_works.video_url')}
-                title="TalkSphere Nasıl Çalışır?"
+                src={`${t('how_it_works.video_url')}?enablejsapi=1`}
+                title="TalkSphere"
                 className="w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
