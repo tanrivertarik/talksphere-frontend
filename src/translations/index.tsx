@@ -396,7 +396,7 @@ export const translations = {
         },
         {
           title: '6. İletişim',
-          content: 'KVKK kapsamındaki haklarınızı kullanmak için veya politikamız hakkında sorularınız için bizimle iletişim formumuz üzerinden veya [E-POSTA ADRESİ] adresinden iletişime geçebilirsiniz.'
+          content: 'KVKK kapsamındaki haklarınızı kullanmak için veya politikamız hakkında sorularınız için bizimle iletişim formumuz üzerinden veya support@thetalksphere.com adresinden iletişime geçebilirsiniz.'
         },
         {
           title: '7. Politika Güncellemeleri',
@@ -890,7 +890,7 @@ export const translations = {
         },
         {
           title: '6. Contact',
-          content: 'You can contact us through our contact form or at [EMAIL ADDRESS] to exercise your rights under GDPR or for questions about our policy.'
+          content: 'You can contact us through our contact form or at support@thetalksphere.com to exercise your rights under GDPR or for questions about our policy.'
         },
         {
           title: '7. Policy Updates',
