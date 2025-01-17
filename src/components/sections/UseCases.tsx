@@ -1,33 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Card from '../common/Card';
-import Button from '../common/Button';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
+import { Squares } from '../ui/squares-background';
+import { StarBorder } from '../ui/star-border';
+import { GlowingStarsBackgroundCard, GlowingStarsTitle, GlowingStarsDescription } from '../ui/glowing-background-stars-card';
 
 const UseCases: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-32 bg-[#060606] relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Squares 
+          direction="up"
+          speed={0.3}
+          squareSize={40}
+          borderColor="#333" 
+          hoverFillColor="#222"
+        />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold text-text mb-4">{t('useCases.title')}</h2>
-          <p className="text-xl text-text-alt">
+          <h2 className="text-4xl font-bold text-white mb-6">{t('useCases.title')}</h2>
+          <p className="text-xl text-gray-300 mb-4">
             {t('useCases.subtitle')}
           </p>
-          <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+          <p className="text-gray-400 max-w-3xl mx-auto">
             {t('useCases.description')}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {(t('useCases.list', { returnObjects: true }) as Array<{
             title: string;
             description: string;
@@ -44,21 +54,22 @@ const UseCases: React.FC = () => {
                 delay: index * 0.1 
               }}
             >
-              <Card className="h-full p-6 bg-white hover:bg-primary/5 transition-all duration-300 
-                            border border-accent/5 hover:border-primary/10">
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-xl 
-                              bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
-                    {useCase.icon}
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-xl font-semibold text-text group-hover:text-primary transition-colors duration-300">
+              <GlowingStarsBackgroundCard className="h-full">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg 
+                                bg-primary/5">
+                      {useCase.icon}
+                    </div>
+                    <GlowingStarsTitle>
                       {useCase.title}
-                    </h3>
-                    <p className="text-text-alt text-sm">{useCase.description}</p>
+                    </GlowingStarsTitle>
                   </div>
+                  <GlowingStarsDescription>
+                    {useCase.description}
+                  </GlowingStarsDescription>
                 </div>
-              </Card>
+              </GlowingStarsBackgroundCard>
             </motion.div>
           ))}
         </div>
@@ -74,19 +85,18 @@ const UseCases: React.FC = () => {
           }}
           className="text-center"
         >
-          <h3 className="text-2xl font-semibold text-text mb-8">
+          <h3 className="text-2xl font-semibold text-white mb-8">
             {t('useCases.cta_title')}
           </h3>
           <Link to="/contact">
-            <Button 
-              variant="primary"
-              size="lg"
-              className="bg-primary hover:bg-primary-alt text-white font-semibold px-12 py-4 rounded-lg
-                        transform transition-all duration-200 hover:scale-[1.02] shadow-lg
-                        hover:shadow-primary/20 min-w-[240px]"
+            <StarBorder 
+              as="div"
+              color="#fff"
+              speed="4s"
+              className="hover:scale-[1.02] transition-transform duration-200 text-white inline-flex px-8 py-4"
             >
               {t('useCases.cta_button')}
-            </Button>
+            </StarBorder>
           </Link>
         </motion.div>
       </div>

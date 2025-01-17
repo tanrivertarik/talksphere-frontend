@@ -1,13 +1,23 @@
 import { motion } from 'framer-motion';
-import Card from '../common/Card';
 import { useTranslation } from '../../hooks/useTranslation';
+import { Squares } from '../ui/squares-background';
+import { HoverEffect } from '../ui/hover-effect';
 
 const Features = () => {
   const { t, language } = useTranslation();
 
   return (
-    <section id="features" className="pt-48 pb-48 bg-gradient-to-b from-background-alt to-background-light overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="features" className="pt-48 pb-48 bg-[#060606] relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Squares 
+          direction="diagonal"
+          speed={0.5}
+          squareSize={40}
+          borderColor="#333" 
+          hoverFillColor="#222"
+        />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16 mb-32">
           <motion.div 
             initial={{ opacity: 0, x: -60 }}
@@ -16,10 +26,10 @@ const Features = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="md:w-1/2 space-y-6"
           >
-            <h2 className="text-4xl font-bold text-text leading-tight">
+            <h2 className="text-4xl font-bold text-white leading-tight">
               {t('features.title')}
             </h2>
-            <p className="text-xl text-text-alt leading-relaxed">
+            <p className="text-xl text-gray-300 leading-relaxed">
               {t('features.subtitle')}
             </p>
           </motion.div>
@@ -43,45 +53,18 @@ const Features = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-          {(t('features.list', { returnObjects: true }) as Array<{
+        <HoverEffect
+          items={(t('features.list', { returnObjects: true }) as Array<{
             title: string;
             description: string;
             icon: React.ReactNode;
-          }>).map((feature, index: number) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ 
-                duration: 0.8,
-                ease: "easeOut",
-                delay: index * 0.1 
-              }}
-              className="group"
-            >
-              <Card className="h-full p-8 sm:p-10 bg-white hover:bg-background-alt transition-all duration-300 
-                            border border-accent/5 hover:border-primary/10
-                            shadow-sm hover:shadow-lg rounded-2xl">
-                <div className="flex flex-col items-center text-center space-y-6">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-xl 
-                              bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
-                                {feature.icon}
-                  </div>
-                  <div className="space-y-4">
-                    <h3 className="text-xl font-semibold text-text group-hover:text-primary transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-text-alt leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+          }>).map(feature => ({
+            title: feature.title,
+            description: feature.description,
+            link: '#'  // You can add actual links if needed
+          }))}
+          className="mt-16"
+        />
       </div>
     </section>
   );

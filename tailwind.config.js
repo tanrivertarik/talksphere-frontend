@@ -1,30 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
-      colors: {
-        primary: {
-          DEFAULT: "#2E7D32",
-          alt: "#1B5E20",
-        },
-        accent: {
-          DEFAULT: "#A67F52",
-          light: "#D2B48C",
-        },
-        background: {
-          light: "#FAFAFA",
-          alt: "#F8F8F8",
-        },
-        text: {
-          DEFAULT: "#4A3F35",
-          alt: "#333333",
-        },
+      animation: {
+        'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+        'star-movement-top': 'star-movement-top linear infinite alternate',
       },
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
+      keyframes: {
+        'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        },
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+        },
       },
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+  plugins: [],
 };
