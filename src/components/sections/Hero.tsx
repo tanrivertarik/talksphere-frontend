@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="flex flex-col lg:flex-row items-center">
             {/* Left content */}
             <motion.div 
-              className="flex-1 p-8 relative z-10 flex flex-col justify-center text-center lg:text-left"
+              className="flex-1 p-8 relative z-10 flex flex-col justify-center text-center"
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -42,13 +42,13 @@ const Hero = () => {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
                   {t('home.title')}
                 </h1>
-                <p className="text-lg sm:text-xl text-stone-100 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
+                <p className="text-lg sm:text-xl text-stone-100 max-w-3xl mx-auto leading-relaxed">
                   {t('home.description')}
                 </p>
               </motion.div>
               
               <motion.div 
-                className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 sm:gap-6 mt-12"
+                className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-12"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
