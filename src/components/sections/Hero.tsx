@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useTranslation } from '../../hooks/useTranslation';
-import { SplineScene } from '../ui/splite';
-import { Spotlight } from '../ui/spotlight';
 import { Card } from '../ui/card';
 import { Squares } from '../ui/squares-background';
 import { StarBorder } from '../ui/star-border';
@@ -23,9 +21,7 @@ const Hero = () => {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <Card className="w-full bg-black/80 relative overflow-hidden">
-          <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20"
-          />
+          
           
           <div className="flex flex-col lg:flex-row items-center">
             {/* Left content */}
@@ -82,12 +78,6 @@ const Hero = () => {
             </motion.div>
 
             {/* Right content - 3D Scene */}
-            <div className="flex-1 h-[500px] relative mt-8 lg:mt-0">
-              <SplineScene 
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
-            </div>
           </div>
         </Card>
       </div>

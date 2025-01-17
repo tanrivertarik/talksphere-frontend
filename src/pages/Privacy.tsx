@@ -1,23 +1,32 @@
 import { motion } from 'framer-motion';
-import Card from '../components/common/Card';
 import { useTranslation } from '../hooks/useTranslation';
 import { Link } from 'react-router-dom';
+import { Squares } from '../components/ui/squares-background';
 
 const Privacy = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="py-20 pt-32">
-      <div className="container mx-auto px-4">
+    <div className="relative min-h-screen py-20 pt-32 bg-black">
+      <Squares
+        className="absolute inset-0 z-0 opacity-50"
+        direction="diagonal"
+        speed={0.5}
+        borderColor="#333"
+        squareSize={50}
+        hoverFillColor="#444"
+      />
+      
+      <div className="container relative z-10 mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl font-bold text-white mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-200 to-gray-400">
             {t('privacy.title')}
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
             {t('privacy.subtitle')}
           </p>
         </motion.div>
@@ -32,12 +41,14 @@ const Privacy = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
+              className="backdrop-blur-sm bg-black/30 rounded-xl border border-gray-800 hover:border-gray-700 transition-colors duration-300"
             >
-              <Card title={section.title}>
-                <p className="text-gray-600 whitespace-pre-line">
+              <div className="p-6">
+                <h2 className="text-2xl font-semibold text-white mb-4">{section.title}</h2>
+                <p className="text-gray-400 whitespace-pre-line">
                   {section.content}
                 </p>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -48,9 +59,9 @@ const Privacy = () => {
           transition={{ delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <p className="mt-4 text-gray-600">
+          <p className="mt-4 text-gray-400">
             {t('privacy.footer.contact_text')}{' '}
-            <Link to="/contact" className="text-primary hover:underline">
+            <Link to="/contact" className="text-primary hover:text-primary-light hover:underline transition-colors duration-300">
               {t('privacy.footer.contact_link')}
             </Link>
             {' '}{t('privacy.footer.contact_suffix')}

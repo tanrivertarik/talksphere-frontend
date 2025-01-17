@@ -264,7 +264,7 @@ export const translations = {
       team_section_title: 'Liderlik Ekibimiz',
       team: [
         {
-          name: 'Ahmet Tarik TANRIVER',
+          name: 'Ahmet Tarık TANRIVER',
           role: 'CEO & Kurucu Ortak',
           description: 'Yapay zeka destekli iş iletişiminde vizyonumuzu yönlendiriyor',
           image: '/assets/team/ceo.png',
@@ -274,7 +274,7 @@ export const translations = {
           }
         },
         {
-          name: 'Selim YUREKLI',
+          name: 'Selim YÜREKLİ',
           role: 'CTO & Kurucu Ortak',
           description: 'Yapay zeka ve teknoloji altyapımızı tasarlıyor',
           image: '/assets/team/cto.jpg',
@@ -284,9 +284,9 @@ export const translations = {
           }
         },
         {
-          name: 'Berk ATCEKEN',
-          role: 'CPO & Kurucu Ortak',
-          description: 'Ürün stratejimizi ve kullanıcı deneyimimizi şekillendiriyor',
+          name: 'Berk ATÇEKEN',
+          role: 'CIO & Kurucu Ortak',
+          description: 'Veri güvenliği ve bilgi sistemleri stratejilerimizi yönetiyor',
           image: '/assets/team/cpo.jpg',
           social: {
             linkedin: '#',
@@ -780,8 +780,8 @@ export const translations = {
         },
         {
           name: 'Berk ATCEKEN',
-          role: 'CPO & Co-founder',
-          description: 'Shaping our product strategy and user experience',
+          role: 'CIO & Co-founder',
+          description: 'Managing our data security and information systems strategies',
           image: '/assets/team/cpo.jpg',
           social: {
             linkedin: '#',
@@ -942,23 +942,22 @@ export const translations = {
       contact_button: 'Contact Us'
     },
     cookies: {
-      title: 'Çerez Politikası',
-      subtitle: 'TalkSphere olarak web sitemizde kullanılan çerezler hakkında sizi bilgilendirmek isteriz.',
+      title: 'Cookie Policy',
+      subtitle: 'We would like to inform you about the cookies used on our website at TalkSphere.',
       sections: [
         {
-          title: 'Çerezler Nedir?',
-          content: `Çerezler, web sitemizi ziyaret ettiğinizde tarayıcınız aracılığıyla cihazınıza yerleştirilen küçük metin dosyalarıdır. Bu dosyalar:
-          • Sitemizin düzgün çalışması
-          • Güvenliğin sağlanması
-          • Kullanıcı deneyiminin iyileştirilmesi
-          • Tercihlerinizin hatırlanması
-          için kullanılmaktadır.`
+          title: 'What Are Cookies?',
+          content: `Cookies are small text files placed on your device through your browser when you visit our website. These files are used for:
+          • Proper functioning of our site
+          • Ensuring security
+          • Improving user experience
+          • Remembering your preferences`
         },
         {
-          title: 'Çerez Türleri',
-          content: `Web sitemizde kullanılan çerez türleri:
-          • Zorunlu Çerezler: Sitemizin temel işlevleri için gereklidir
-          • Performans Çerezleri: Sitemizin performansını analiz eder
+          title: 'Types of Cookies',
+          content: `Types of cookies used on our website:
+          • Essential Cookies: Required for basic site functions
+          • Performance Cookies: Analyzes site performance
           • İşlevsellik Çerezleri: Kişiselleştirilmiş deneyim sunar
           • Hedefleme Çerezleri: Size özel reklamlar gösterilmesini sağlar`
         },
