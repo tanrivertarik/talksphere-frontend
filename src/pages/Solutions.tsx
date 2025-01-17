@@ -3,22 +3,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import Card from '../components/common/Card';
 import { useTranslation } from '../hooks/useTranslation';
+import { Squares } from '../components/ui/squares-background';
 
 const Solutions = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="py-20 pt-32">
-      <div className="container mx-auto px-4">
+    <div className="relative min-h-screen bg-[#060606] py-20 pt-32">
+      <div className="absolute inset-0">
+        <Squares 
+          direction="right"
+          speed={0.4}
+          squareSize={40}
+          borderColor="#333" 
+          hoverFillColor="#222"
+        />
+      </div>
+      <div className="container relative mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl font-bold text-white mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
             {t('solutions.title')}
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-neutral-400 max-w-3xl mx-auto">
             {t('solutions.subtitle')}
           </p>
         </motion.div>
@@ -36,21 +46,21 @@ const Solutions = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full">
+              <div className="h-full bg-black/80 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-white/20 transition-colors shadow-lg">
                 <div className="flex items-center mb-6">
                   {solution.icon}
-                  <h3 className="text-2xl font-semibold ml-4">{solution.title}</h3>
+                  <h3 className="text-2xl font-semibold ml-4 text-white">{solution.title}</h3>
                 </div>
-                <p className="text-gray-600 mb-6">{solution.description}</p>
+                <p className="text-neutral-400 mb-6">{solution.description}</p>
                 <ul className="space-y-2">
                   {solution.features.map((feature) => (
-                    <li key={feature} className="flex items-center text-gray-700">
-                      <FontAwesomeIcon icon={faCheck} className="text-primary text-sm mr-2" />
+                    <li key={feature} className="flex items-center text-neutral-300">
+                      <FontAwesomeIcon icon={faCheck} className="text-white text-sm mr-2" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-              </Card>
+              </div>
             </motion.div>
           ))}
         </div>

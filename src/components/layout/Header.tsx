@@ -72,7 +72,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center justify-between h-16 px-4">
+        <div className="md:hidden flex items-center justify-between h-16 px-4 bg-white shadow-md rounded-lg my-2">
           <Link to="/" className="flex items-center gap-2 group">
             <img 
               src="/assets/data-asistant.png"
@@ -89,17 +89,24 @@ const Header = () => {
             <button 
               className="text-gray-800 p-2 rounded-md hover:bg-gray-100"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg">
+          <div className="md:hidden absolute top-[4.5rem] left-0 right-0 bg-white shadow-lg rounded-lg mx-4">
             <div className="px-4 py-2 space-y-1">
               <a 
                 href="#features"

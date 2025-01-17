@@ -996,4 +996,11 @@ export type TranslationKey =
   | 'footer.product' | 'footer.company' | 'footer.legal' | 'footer.social' | 'footer.rights' | 'footer.description'
   | 'common.loading' | 'common.error' | 'common.try_again'
   | 'not_found.error_code' | 'not_found.title' | 'not_found.description' | 'not_found.home_button' | 'not_found.contact_button'
-  | 'cookies.title' | 'cookies.subtitle' | 'cookies.sections' | 'cookies.footer.contact_text' | 'cookies.footer.contact_link' | 'cookies.footer.contact_suffix'; 
+  | 'cookies.title' | 'cookies.subtitle' | 'cookies.sections' | 'cookies.footer.contact_text' | 'cookies.footer.contact_link' | 'cookies.footer.contact_suffix'
+  | 'contact.title' | 'contact.subtitle'
+  | 'contact.form.name.label' | 'contact.form.name.placeholder'
+  | 'contact.form.email.label' | 'contact.form.email.placeholder'
+  | 'contact.form.company.label' | 'contact.form.company.placeholder'
+  | 'contact.form.message.label' | 'contact.form.message.placeholder'
+  | 'contact.form.submit' | 'contact.form.success' | 'contact.form.error'
+  | 'contact.form.privacy_notice.prefix' | 'contact.form.privacy_notice.link' | 'contact.form.privacy_notice.suffix'; 
