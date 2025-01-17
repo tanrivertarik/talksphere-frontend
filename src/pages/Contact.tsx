@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import { Squares } from '../components/ui/squares-background';
-import { Spotlight } from '../components/ui/spotlight';
 import { Card } from '../components/ui/card';
 
 const Contact = () => {
@@ -52,9 +51,6 @@ const Contact = () => {
       
       <div className="container relative mx-auto px-4 z-10">
         <Card className="w-full max-w-lg mx-auto bg-black/80 relative overflow-hidden">
-          <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20"
-          />
           
           <div className="relative z-10 p-8">
             <motion.div
