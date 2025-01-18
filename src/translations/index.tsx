@@ -100,7 +100,7 @@ export const translations = {
         legal: {
           privacy: 'Gizlilik Politikası',
           terms: 'Kullanım Koşulları',
-          kvkk: 'KVKK'
+          data_protection: 'KVKK'
         },
         social: {
           twitter: 'Twitter',
@@ -595,7 +595,7 @@ export const translations = {
         legal: {
           privacy: 'Privacy Policy',
           terms: 'Terms of Service',
-          kvkk: 'KVKK'
+          data_protection: 'GDPR'
         },
         social: {
           twitter: 'Twitter',

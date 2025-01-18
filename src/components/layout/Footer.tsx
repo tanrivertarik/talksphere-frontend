@@ -66,7 +66,7 @@ const Footer = () => {
           href: '/privacy' 
         },
         { 
-          name: t('footer.links.legal.kvkk'), 
+          name: t('footer.links.legal.data_protection'), 
           href: '/kvkk' 
         },
       ],
